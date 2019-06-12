@@ -1,3 +1,5 @@
+#if 0
+
 ; BIOS source for 8086tiny IBM PC emulator (revision 1.21 and above). Compiles with NASM.
 ; Copyright 2013-14, Adrian Cable (adrian.cable@gmail.com) - http://www.megalith.co.uk/8086tiny
 ;
@@ -3849,3 +3851,5 @@ tm_wday		equ $+24
 tm_yday		equ $+28
 tm_dst		equ $+32
 tm_msec		equ $+36
+
+#endif
