@@ -31,7 +31,7 @@ unsigned char parity[] = {1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 
 
 
 // this is the reference order for bios_table_lookup:
-unsigned char *bios_table_lookup_c[20] = {
+unsigned char *bios_table_lookup[20] = {
 	rm_mode12_reg1,		// Table  0: R/M mode 1/2 "register 1" lookup
 	rm_mode012_reg2,	// Table  1: R/M mode 1/2 "register 2" lookup
 	rm_mode12_disp,		// Table  2: R/M mode 1/2 "DISP multiplier" lookup
