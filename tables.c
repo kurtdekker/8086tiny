@@ -1,28 +1,4 @@
 
-// this is the reference order for bios_table_lookup:
-unsigned char *bios_table_lookup_c[20] = {
-	rm_mode12_reg1		// Table  0: R/M mode 1/2 "register 1" lookup
-	rm_mode012_reg2		// Table  1: R/M mode 1/2 "register 2" lookup
-	rm_mode12_disp		// Table  2: R/M mode 1/2 "DISP multiplier" lookup
-	rm_mode12_dfseg		// Table  3: R/M mode 1/2 "default segment" lookup
-	rm_mode0_reg1		// Table  4: R/M mode 0 "register 1" lookup
-	rm_mode012_reg2		// Table  5: R/M mode 0 "register 2" lookup
-	rm_mode0_disp		// Table  6: R/M mode 0 "DISP multiplier" lookup
-	rm_mode0_dfseg		// Table  7: R/M mode 0 "default segment" lookup
-	xlat_ids			// Table  8: Translation of raw opcode index ("Raw ID") to function number ("Xlat'd ID")
-	ex_data				// Table  9: Translation of Raw ID to Extra Data
-	std_flags			// Table 10: How each Raw ID sets the flags (bit 1 = sets SZP, bit 2 = sets AF/OF for arithmetic, bit 3 = sets OF/CF for logic)
-	parity				// Table 11: Parity flag loop-up table (256 entries)
-	base_size			// Table 12: Translation of Raw ID to base instruction size (bytes)
-	i_w_adder			// Table 13: Translation of Raw ID to i_w size adder yes/no
-	i_mod_adder			// Table 14: Translation of Raw ID to i_mod size adder yes/no
-	jxx_dec_a			// Table 15: Jxx decode table A
-	jxx_dec_b			// Table 16: Jxx decode table B
-	jxx_dec_c			// Table 17: Jxx decode table C
-	jxx_dec_d			// Table 18: Jxx decode table D
-	flags_mult			// Table 19: FLAGS multipliers
-};
-
 unsigned char rm_mode0_reg1[]   = { 3, 3, 5, 5, 6, 7, 12, 3};
 unsigned char rm_mode012_reg2[] = { 6, 7, 6, 7, 12, 12, 12, 12};	// used twice
 unsigned char rm_mode0_disp[]   = { 0, 0, 0, 0, 0, 0, 1, 0};
@@ -49,6 +25,36 @@ unsigned char jxx_dec_c[] = {49, 49, 49, 49, 49, 49, 44, 44};
 unsigned char jxx_dec_d[] = {49, 49, 49, 49, 49, 49, 48, 48};
 
 unsigned char parity[] = {1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1};
+
+
+
+
+
+// this is the reference order for bios_table_lookup:
+unsigned char *bios_table_lookup_c[20] = {
+	rm_mode12_reg1,		// Table  0: R/M mode 1/2 "register 1" lookup
+	rm_mode012_reg2,	// Table  1: R/M mode 1/2 "register 2" lookup
+	rm_mode12_disp,		// Table  2: R/M mode 1/2 "DISP multiplier" lookup
+	rm_mode12_dfseg,	// Table  3: R/M mode 1/2 "default segment" lookup
+	rm_mode0_reg1,		// Table  4: R/M mode 0 "register 1" lookup
+	rm_mode012_reg2,	// Table  5: R/M mode 0 "register 2" lookup
+	rm_mode0_disp,		// Table  6: R/M mode 0 "DISP multiplier" lookup
+	rm_mode0_dfseg,		// Table  7: R/M mode 0 "default segment" lookup
+	xlat_ids,			// Table  8: Translation of raw opcode index ("Raw ID") to function number ("Xlat'd ID")
+	ex_data,			// Table  9: Translation of Raw ID to Extra Data
+	std_flags,			// Table 10: How each Raw ID sets the flags (bit 1 = sets SZP, bit 2 = sets AF/OF for arithmetic, bit 3 = sets OF/CF for logic)
+	parity,				// Table 11: Parity flag loop-up table (256 entries)
+	base_size,			// Table 12: Translation of Raw ID to base instruction size (bytes)
+	i_w_adder,			// Table 13: Translation of Raw ID to i_w size adder yes/no
+	i_mod_adder,		// Table 14: Translation of Raw ID to i_mod size adder yes/no
+	jxx_dec_a,			// Table 15: Jxx decode table A
+	jxx_dec_b,			// Table 16: Jxx decode table B
+	jxx_dec_c,			// Table 17: Jxx decode table C
+	jxx_dec_d,			// Table 18: Jxx decode table D
+	flags_mult,			// Table 19: FLAGS multipliers
+};
+
+
 
 
 
