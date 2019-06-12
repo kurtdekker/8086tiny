@@ -18,6 +18,8 @@
 #include "SDL.h"
 #endif
 
+#include "tables.c"
+
 // Emulator system constants
 #define IO_PORT_COUNT 0x10000
 #define RAM_SIZE 0x10FFF0
