@@ -296,9 +296,10 @@ int main(int argc, char **argv)
 	read(disk[2], regs8 + (reg_ip = 0x100), 0xFF00);
 
 	// Load instruction decoding helper table
-	for (int i = 0; i < 20; i++)
-		for (int j = 0; j < 256; j++)
-			bios_table_lookup[i][j] = regs8[regs16[0x81 + i] + j];
+// 3:51 PM 6/13/2019 - turning off; these tables are defined in C code now
+//	for (int i = 0; i < 20; i++)
+//		for (int j = 0; j < 256; j++)
+//			bios_table_lookup[i][j] = regs8[regs16[0x81 + i] + j];
 
 	// Instruction execution loop. Terminates if CS:IP = 0:0
 	for (; opcode_stream = mem + 16 * regs16[REG_CS] + reg_ip, opcode_stream != mem;)
